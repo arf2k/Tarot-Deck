@@ -1,6 +1,7 @@
-{
-  "description": "tarot cards and basic information about them, as well as references to corresponding scans",
-  "cards": [
+
+ 
+const CardInfo = [
+ 
     {
       "name": "The Fool",
       "number": "0",
@@ -3085,4 +3086,5 @@
 	  "Questions to Ask" : ["How can you handle expenses with greater confidence and maturity?","How dependable are you? How dependable would others say you are?","To what extent is a conservative viewpoint valuable? At what point does it become more of a burden than a blessing?"]
     }
   ]
-}
+
+  export default CardInfo
