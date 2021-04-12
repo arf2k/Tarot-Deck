@@ -4,18 +4,21 @@ import InfoModal from "../info-modal/InfoModal";
 
 const SingleCard = ({ card }) => {
   
-  const [active, setActive] = useState(false)
+  const [show, setShow] = useState(false)
 
-  const toggle = () => {
 
-   setActive(!active)
-   console.log( card.name, "active")
-  }
-  
-  // const openModal = () => {
-  //   console.log("opening modal for", card.name)
-    
-  // }
+// const deactivate = () => {
+//   setActive(false)
+// }
+
+const showModal = () => {
+  setShow(true)
+}
+
+const onClose = () => {
+  setShow(false)
+}
+
 
   return (
     <>
@@ -25,13 +28,13 @@ const SingleCard = ({ card }) => {
           <img className="card-img"
             alt={card.name}
             src={process.env.PUBLIC_URL + `${card.img}`}
-            onClick={ () => toggle(card.name)  }
-         
+        onClick={() => showModal(card.name)}
+            
           />
            
         </div>
       </div>
-      {active ? <InfoModal card={card}/> : null}
+      <InfoModal card={card} show={show} onClose={onClose}/>
     </>
   );
 };
