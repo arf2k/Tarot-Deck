@@ -1,17 +1,37 @@
-import React from "react";
+import React, {useState} from "react";
+import "../../styles/SingleCard.styles.scss"
+import InfoModal from "../info-modal/InfoModal";
 
 const SingleCard = ({ card }) => {
+  
+  const [active, setActive] = useState(false)
+
+  const toggle = () => {
+
+   setActive(!active)
+   console.log( card.name, "active")
+  }
+  
+  // const openModal = () => {
+  //   console.log("opening modal for", card.name)
+    
+  // }
+
   return (
     <>
       <div className="card-container">
         <h1> {card.name} </h1>
-        <div className="card-image">
-          <img
+        <div className={"card-img"}>
+          <img className="card-img"
+            alt={card.name}
             src={process.env.PUBLIC_URL + `${card.img}`}
-            style={{ border: "solid", boxShadow: "5px 10px 8px #888888" }}
+            onClick={ () => toggle(card.name)  }
+         
           />
+           
         </div>
       </div>
+      {active ? <InfoModal card={card}/> : null}
     </>
   );
 };

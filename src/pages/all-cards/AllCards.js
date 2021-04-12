@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import CardInfo from "../../tarot-card-json";
 import SingleCard from "../../component/single-card/SingleCard";
 import "../../styles/AllCards.styles.scss";
