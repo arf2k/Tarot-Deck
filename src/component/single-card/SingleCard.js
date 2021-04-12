@@ -1,26 +1,19 @@
 import React from "react";
-import imageLoader from "../../pages/all-cards/cardImages";
 
+const SingleCard = ({ card }) => {
+  return (
+    <>
+      <div className="card-container">
+        <h1> {card.name} </h1>
+        <div className="card-image">
+          <img
+            src={process.env.PUBLIC_URL + `${card.img}`}
+            style={{ border: "solid", boxShadow: "5px 10px 8px #888888" }}
+          />
+        </div>
+      </div>
+    </>
+  );
+};
 
-
-
-
-const SingleCard = ({card}) => {
-
-   
-
-return(
-     <>
-    
-     <div className="card-container">
-        <h1>  {card.name} </h1>
-        <img src={process.env.PUBLIC_URL + `${card.img}`} />
-       
-       </div>
-</>
- )
-
-}
-
-
-export default SingleCard
+export default SingleCard;
