@@ -6,7 +6,7 @@ const InfoModal = ({ card, show, onClose }) => {
     return null;
   }
   return (
-    <div className="bg">
+    <div className="bg" onClick={onClose}>
       <div className="modal-content">
         <h1> {card.name} </h1>
         <p> card number : {card.number}</p>
