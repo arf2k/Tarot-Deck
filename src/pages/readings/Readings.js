@@ -6,7 +6,6 @@ const Readings = () => {
      return (
           <>
           <h1>Readings page </h1>
-          <CardDeck/>
           <ShuffleOne/>
           </>
      )
