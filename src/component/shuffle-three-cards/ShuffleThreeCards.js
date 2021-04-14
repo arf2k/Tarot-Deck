@@ -14,7 +14,7 @@ const ShuffleThreeCards = () => {
   };
 
   const renderThree = () => {
-    return threeCards.map((card) => <SingleCard card={card} />);
+    return threeCards.map((card) => <SingleCard  card={card} />);
   };
 
   return (
