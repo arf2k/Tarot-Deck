@@ -1,12 +1,11 @@
 import React from "react";
-import CardDeck from "../../component/card-deck/CardDeck";
-import ShuffleOne from "../../component/shuffle-one/ShuffleOne";
+import ShuffleShow from "../../component/shuffle-show/ShuffleShow";
 
 const Readings = () => {
      return (
           <>
           <h1>Readings page </h1>
-          <ShuffleOne/>
+          <ShuffleShow/>
           </>
      )
 }
