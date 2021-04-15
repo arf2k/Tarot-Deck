@@ -1,17 +1,9 @@
-import React, { useState } from "react";
-import { FisherYatesShuffle } from "../shuffle-algo/ShuffleAlgo";
-import CardInfo from "../../tarot-card-json";
+import React from "react";
+
 import SingleCard from "../single-card/SingleCard";
 
-const ShuffleOneCard = () => {
-  const [card, setCard] = useState("");
+const ShuffleOneCard = ({card}) => {
 
-  const showShuffled = () => {
-    const arr = CardInfo;
-    const shuffled = FisherYatesShuffle(arr);
-    const card = shuffled[0];
-    setCard(card);
-  };
 
   const renderOne = () => {
     return <SingleCard card={card} />;
@@ -19,7 +11,6 @@ const ShuffleOneCard = () => {
 
   return (
     <>
-      <button onClick={showShuffled}>Shuffle One</button>
       {card ? renderOne() : null}
     </>
   );

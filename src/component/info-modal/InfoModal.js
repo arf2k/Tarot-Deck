@@ -8,9 +8,10 @@ const InfoModal = ({ card, show, onClose }) => {
   return (
     <div className="bg" onClick={onClose}>
       <div className="modal-content">
+      <i class="fas fa-times"></i>
         <h1> {card.name} </h1>
-        <p> card number : {card.number}</p>
-        <p>arcana: {card.arcana}</p>
+        <p> Card Number : {card.number}</p>
+        <p>Arcana: {card.arcana}</p>
         <p>suit: {card.suit}</p>
         <ul>
           {" "}
@@ -20,7 +21,7 @@ const InfoModal = ({ card, show, onClose }) => {
         </ul>
         <ul>
           {" "}
-          keywords:
+          Keywords:
           <li>{card.keywords[0]}</li>
           <li>{card.keywords[1]}</li>
           <li>{card.keywords[2]}</li>

@@ -1,28 +1,13 @@
-import React, { useState } from "react";
-import { FisherYatesShuffle } from "../shuffle-algo/ShuffleAlgo";
-import CardInfo from "../../tarot-card-json";
+import React from "react";
+
 import SingleCard from "../single-card/SingleCard";
 
-const ShuffleThreeCards = () => {
-  const [threeCards, setThreeCards] = useState([]);
-
-  const shuffleThree = () => {
-    const shuffled = FisherYatesShuffle(CardInfo);
-    let three = [shuffled[0], shuffled[1], shuffled[2]];
-
-    setThreeCards(three);
-  };
-
+const ShuffleThreeCards = ({ threeCards }) => {
   const renderThree = () => {
-    return threeCards.map((card) => <SingleCard  card={card} />);
+    return threeCards.map((card) => <SingleCard card={card} />);
   };
 
-  return (
-    <>
-      <button onClick={shuffleThree}> Shuffle Three</button>
-      {renderThree()}
-    </>
-  );
+  return <>{renderThree()}</>;
 };
 
 export default ShuffleThreeCards;

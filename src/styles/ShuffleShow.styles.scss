@@ -1,13 +1,39 @@
 .shuffle-one-container {
-     display: flex;
-     flex-direction: row;
-     justify-content: center;
-     align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 50px
+}
+
+.button-div {
+  position: relative;
+  padding-bottom: 50px;
+
+  .button-one {
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5.5px);
+    color: #ffd700;
+    position: absolute;
+    left: 0px;
+    margin-left: 100px;
+  }
+
+  .button-two {
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(5.5px);
+    color: #ffd700;
+    position: absolute;
+    right: 0px;
+    margin-right: 100px;
+  }
 }
 
 .shuffle-three-container {
-     display: flex;
-     flex-direction: row;
-     flex-wrap: wrap;
-     justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }
