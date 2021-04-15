@@ -18,7 +18,7 @@ const AllCards = () => {
 
   return (
     <>
-      <h1>All Cards Page</h1>
+      <h1>Card Exploration</h1>
       <SearchBar 
       searchTerm={searchTerm}
       searchHandler={searchHandler}
