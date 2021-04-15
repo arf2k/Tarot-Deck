@@ -16,7 +16,7 @@ const InfoModal = ({ card, show, onClose }) => {
           {" "}
           Fortune Telling :<li>{card.fortune_telling[0]}</li>
           <li>{card.fortune_telling[1]}</li>
-          <li>{card.fortune_telling[2]}</li>
+          {card.fortune_telling[2] ? <li>{card.fortune_telling[2]}</li> : null}
         </ul>
         <ul>
           {" "}
@@ -28,7 +28,7 @@ const InfoModal = ({ card, show, onClose }) => {
         <button onClick={onClose}>Close </button>
       </div>
     </div>
-    // </div>
+
   );
 };
 
