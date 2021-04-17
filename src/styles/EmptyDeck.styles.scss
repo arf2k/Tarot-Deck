@@ -1,0 +1,15 @@
+.empty-deck-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+
+}
+
+.empty-card {
+  height: 606px;
+  width: 356px;
+  border: solid;
+  box-shadow: 5px 10px 8px #ffd700;
+  background-color: gray;
+}
