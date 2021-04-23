@@ -5,6 +5,8 @@ import AllCards from "./pages/all-cards/AllCards";
 import Readings from "./pages/readings/Readings";
 import Header from "./component/header/Header";
 import "./styles/Universal.styles.scss";
+import ReadingsSingle from "./pages/readings/ReadingsSingle";
+import ReadingsTriple from "./pages/readings/ReadingsTriple";
 
 const App = () => {
 
@@ -17,6 +19,8 @@ const App = () => {
     <Route exact path="/" component={Homepage} />
     <Route exact path="/allcards" component={AllCards}/>
     <Route exact path="/readings" component={Readings}/>
+    <Route path = "/single" component={ReadingsSingle}/>
+    <Route path = "/triple" component={ReadingsTriple}/>
     </Switch>
     </>
 

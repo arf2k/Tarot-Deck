@@ -7,11 +7,16 @@ import "../../styles/ShuffleShow.styles.scss";
 import EmptyDeck from "../empty-deck/EmptyDeck";
 import { useDispatch } from "react-redux";
 import { shuffleOne, shuffleThree } from "../../redux/shuffle/shuffleActions";
+import { withRouter } from "react-router-dom";
 
-const ShuffleShow = () => {
-  const [card, setCard] = useState("");
+
+const ShuffleShow = ({history}) => {
+  // const [card, setCard] = useState("");
   // const [threeCards, setThreeCards] = useState([]);
   const [show, setShow] = useState(false);
+
+// const [oneShow, setOneShow ] = useState(false)
+// const [threeShow, setThreeShow] = useState(false)
 
   const dispatch = useDispatch();
 
@@ -19,9 +24,11 @@ const ShuffleShow = () => {
     const arr = CardInfo;
     const shuffled = FisherYatesShuffle(arr);
     const card = shuffled[0];
-    setCard(card);
-    // dispatch(shuffleOne(card));
+    // setCard(card);
+    dispatch(shuffleOne(card));
     setShow(true);
+    // setOneShow(true)
+    // setThreeShow(false)
   };
 
   const shuffleThrees = () => {
@@ -30,26 +37,37 @@ const ShuffleShow = () => {
     // setThreeCards(three);
     dispatch(shuffleThree([three]))
     setShow(true);
+    // setThreeShow(true)
+    // setOneShow(false)
   };
+
+
 
   return (
     <>
       <div className="button-div">
-        <button className="button-one" onClick={showShuffled}>
+        {/* <button className="button-one" onClick={showShuffled}>
+          Shuffle One
+        </button> */}
+          <button className="button-one" onClick={ 
+        () => showShuffled,
+        () => history.push("/single")}>
           Shuffle One
         </button>
         <button className="button-two" onClick={shuffleThrees}>
           Shuffle Three
         </button>
+        {/* <button className="button-one" onClick={() => history.push("/triple")}>
+          Shuffle Three
+        </button> */}
       </div>
       <div className="shufflers">
         {!show ? <EmptyDeck /> : null}
         <div className="shuffle-one-container">
-          <ShuffleOneCard card={card} />
+          <ShuffleOneCard showShuffled={showShuffled}/>
     
         </div>
         <div className="shuffle-three-container">
-        {/* <ShuffleThreeCards threeCards={threeCards} /> */}
         <ShuffleThreeCards />
 
         </div>
@@ -58,4 +76,4 @@ const ShuffleShow = () => {
   );
 };
 
-export default ShuffleShow;
+export default withRouter(ShuffleShow);

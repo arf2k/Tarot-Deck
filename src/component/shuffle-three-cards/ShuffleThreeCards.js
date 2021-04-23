@@ -7,12 +7,15 @@ const ShuffleThreeCards = ({}) => {
   const cards = shuffle.payload;
 
   const renderThree = () => {
-    if (cards) {
+    if (!cards) {
+    return null
+  } else {
       return cards[0].map((card) => <SingleCard card={card} />);
-    }
+    } 
+  
   };
 
-  return <>{renderThree()}</>;
+  return <>{cards? renderThree() : null }</>;
 };
 
 export default ShuffleThreeCards;
