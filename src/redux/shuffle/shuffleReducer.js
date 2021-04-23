@@ -10,12 +10,12 @@ const shuffleReducer = (state = INITIAL_STATE, action) => {
           case ShuffleActionTypes.SHUFFLE_ONE:
                return {
                     ...state,
-                    shuffle: shuffleOne(state.shuffle, action.payload) 
+                    shuffle: shuffleOne(action.payload) 
                     }
                case ShuffleActionTypes.SHUFFLE_THREE: 
                return {
                     ...state,
-                    shuffle: shuffleThree(state.shuffle, action.payload)
+                   shuffle: shuffleThree(action.payload)
                }
                default:
                     return state;

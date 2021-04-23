@@ -5,8 +5,6 @@ import InfoModal from "../info-modal/InfoModal";
 const SingleCard = ({ card }) => {
   const [show, setShow] = useState(false);
 
-
-
   const showModal = () => {
     setShow(true);
   };
@@ -15,14 +13,11 @@ const SingleCard = ({ card }) => {
     setShow(false);
   };
 
-  
-
   return (
     <>
       <div className="card-container">
         <h1> {card.name} </h1>
         <div className={"card-img"}>
-
           <img
             className="card-img"
             alt={card.name}
@@ -30,8 +25,6 @@ const SingleCard = ({ card }) => {
             onClick={() => showModal(card.name)}
             on
           />
-
-
         </div>
       </div>
       <InfoModal card={card} show={show} onClose={onClose} />

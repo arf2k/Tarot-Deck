@@ -6,31 +6,30 @@ import ShuffleOneCard from "../shuffle-one/ShuffleOneCard";
 import "../../styles/ShuffleShow.styles.scss";
 import EmptyDeck from "../empty-deck/EmptyDeck";
 import { useDispatch } from "react-redux";
-import { shuffleOne, shuffleThree } from "../../redux/shuffle/shuffleActions"
+import { shuffleOne, shuffleThree } from "../../redux/shuffle/shuffleActions";
 
 const ShuffleShow = () => {
   const [card, setCard] = useState("");
   const [threeCards, setThreeCards] = useState([]);
   const [show, setShow] = useState(false);
 
-  const dispatch = useDispatch();
-  
+  // const dispatch = useDispatch();
+
   const showShuffled = () => {
     const arr = CardInfo;
     const shuffled = FisherYatesShuffle(arr);
     const card = shuffled[0];
-    dispatch(shuffleOne(card));
+    setCard(card);
+    // dispatch(shuffleOne(card));
     setShow(true);
-    setCard("");
   };
 
   const shuffleThrees = () => {
     const shuffled = FisherYatesShuffle(CardInfo);
     let three = [shuffled[0], shuffled[1], shuffled[2]];
-    dispatch(shuffleThree([three]))
+    setThreeCards(three);
+    // dispatch(shuffleThree([three]))
     setShow(true);
-    setThreeCards([]);
-  
   };
 
   return (
