@@ -10,10 +10,10 @@ import { shuffleOne, shuffleThree } from "../../redux/shuffle/shuffleActions";
 
 const ShuffleShow = () => {
   const [card, setCard] = useState("");
-  const [threeCards, setThreeCards] = useState([]);
+  // const [threeCards, setThreeCards] = useState([]);
   const [show, setShow] = useState(false);
 
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   const showShuffled = () => {
     const arr = CardInfo;
@@ -27,8 +27,8 @@ const ShuffleShow = () => {
   const shuffleThrees = () => {
     const shuffled = FisherYatesShuffle(CardInfo);
     let three = [shuffled[0], shuffled[1], shuffled[2]];
-    setThreeCards(three);
-    // dispatch(shuffleThree([three]))
+    // setThreeCards(three);
+    dispatch(shuffleThree([three]))
     setShow(true);
   };
 
@@ -46,9 +46,12 @@ const ShuffleShow = () => {
         {!show ? <EmptyDeck /> : null}
         <div className="shuffle-one-container">
           <ShuffleOneCard card={card} />
+    
         </div>
         <div className="shuffle-three-container">
-          <ShuffleThreeCards threeCards={threeCards} />
+        {/* <ShuffleThreeCards threeCards={threeCards} /> */}
+        <ShuffleThreeCards />
+
         </div>
       </div>
     </>
