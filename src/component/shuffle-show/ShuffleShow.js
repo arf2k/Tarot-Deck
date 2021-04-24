@@ -6,7 +6,7 @@ import ShuffleOneCard from "../shuffle-one/ShuffleOneCard";
 import "../../styles/ShuffleShow.styles.scss";
 import EmptyDeck from "../empty-deck/EmptyDeck";
 import { useDispatch } from "react-redux";
-import { shuffleOne, shuffleThree } from "../../redux/shuffle/shuffleActions";
+import { shuffleOne, shuffleThree, addThree } from "../../redux/shuffle/shuffleActions";
 import { withRouter } from "react-router-dom";
 
 
@@ -17,6 +17,7 @@ const ShuffleShow = ({history}) => {
 
 // const [oneShow, setOneShow ] = useState(false)
 // const [threeShow, setThreeShow] = useState(false)
+const [save, setSave] = useState(false)
 
   const dispatch = useDispatch();
 
@@ -36,10 +37,14 @@ const ShuffleShow = ({history}) => {
     let three = [shuffled[0], shuffled[1], shuffled[2]];
     // setThreeCards(three);
     dispatch(shuffleThree([three]))
+    // dispatch(addThree([three]))
     setShow(true);
+ 
     // setThreeShow(true)
     // setOneShow(false)
+
   };
+
 
 
 
@@ -49,14 +54,14 @@ const ShuffleShow = ({history}) => {
         {/* <button className="button-one" onClick={showShuffled}>
           Shuffle One
         </button> */}
-          <button className="button-one" onClick={ 
-        () => showShuffled,
+          {/* <button className="button-one" onClick={ 
         () => history.push("/single")}>
           Shuffle One
-        </button>
-        <button className="button-two" onClick={shuffleThrees}>
+        </button> */}
+        <button className="button-one" onClick={shuffleThrees}>
           Shuffle Three
         </button>
+      
         {/* <button className="button-one" onClick={() => history.push("/triple")}>
           Shuffle Three
         </button> */}
@@ -64,11 +69,11 @@ const ShuffleShow = ({history}) => {
       <div className="shufflers">
         {!show ? <EmptyDeck /> : null}
         <div className="shuffle-one-container">
-          <ShuffleOneCard showShuffled={showShuffled}/>
+          {/* <ShuffleOneCard showShuffled={showShuffled}/> */}
     
         </div>
         <div className="shuffle-three-container">
-        <ShuffleThreeCards />
+        <ShuffleThreeCards save={save} />
 
         </div>
       </div>

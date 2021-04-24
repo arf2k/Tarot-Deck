@@ -1,11 +1,16 @@
 import React from "react";
 import SingleCard from "../single-card/SingleCard";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { addThree } from "../../redux/shuffle/shuffleActions";
 
-const ShuffleThreeCards = ({}) => {
-  const { shuffle } = useSelector((state) => state.shuffle);
-  const cards = shuffle.payload;
+const ShuffleThreeCards = ({save}) => {
+  const { shuffle } = useSelector((state) => state.shuffle)
+  const cards = shuffle.payload
+ 
 
+
+
+  const dispatch = useDispatch()
   const renderThree = () => {
     if (!cards) {
     return null
@@ -15,7 +20,14 @@ const ShuffleThreeCards = ({}) => {
   
   };
 
-  return <>{cards? renderThree() : null }</>;
+  const saveThree = () => {
+    dispatch(addThree([cards]))
+  }
+
+  
+
+  return <>{cards? renderThree() : null } 
+  {cards? <button onClick={saveThree}>Save?</button> : null} </>
 };
 
 export default ShuffleThreeCards;

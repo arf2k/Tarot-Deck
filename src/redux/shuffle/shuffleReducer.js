@@ -1,8 +1,9 @@
-import { shuffleOne, shuffleThree } from "./shuffleActions";
+import { shuffleOne, shuffleThree, addThree } from "./shuffleActions";
 import ShuffleActionTypes from "./shuffleTypes";
 
 const INITIAL_STATE = {
-     shuffle : []
+     shuffle : [],
+     saved: []
 }
 
 const shuffleReducer = (state = INITIAL_STATE, action) => {
@@ -16,7 +17,14 @@ const shuffleReducer = (state = INITIAL_STATE, action) => {
                return {
                     ...state,
                    shuffle: shuffleThree(action.payload)
+               //     shuffle: [...state.shuffle, action.payload]
                }
+               case ShuffleActionTypes.ADD_THREE:
+                    return {
+                         ...state,
+                         saved: [...state.saved, action.payload ]
+                    }
+
                default:
                     return state;
      }
