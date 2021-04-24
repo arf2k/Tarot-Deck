@@ -5,31 +5,55 @@ const InfoModal = ({ card, show, onClose }) => {
   if (!show) {
     return null;
   }
+
   return (
     <div className="bg" onClick={onClose}>
       <div className="modal-content">
-      <i class="fas fa-times"></i>
-        <h1> {card.name} </h1>
+      
+        <h1 className="card-name"> {card.name} </h1>
+        
         <p> Card Number : {card.number}</p>
-        <p>Arcana: {card.arcana}</p>
-        <p>suit: {card.suit}</p>
         <ul>
-          {" "}
-          Fortune Telling :<li>{card.fortune_telling[0]}</li>
+          Fortune Telling :
+          <li>{card.fortune_telling[0]}</li>
           <li>{card.fortune_telling[1]}</li>
           {card.fortune_telling[2] ? <li>{card.fortune_telling[2]}</li> : null}
-        </ul>
-        <ul>
-          {" "}
+          </ul>
+        
+        {/* <ul>
           Keywords:
           <li>{card.keywords[0]}</li>
           <li>{card.keywords[1]}</li>
           <li>{card.keywords[2]}</li>
+        </ul> */}
+        <ul>
+          Meanings:
+          <ul>
+            Light:
+            <li>{card.meanings.light[0]}</li>
+            <li>{card.meanings.light[1]}</li>
+            <li>{card.meanings.light[2]}</li>
+            <li>{card.meanings.light[3]}</li>
+            {/* <li>{card.meanings.light[4]}</li>
+            <li>{card.meanings.light[5]}</li>
+            <li>{card.meanings.light[6]}</li>
+            <li>{card.meanings.light[7]}</li> */}
+          </ul>
+          Dark:
+          <ul>
+            <li>{card.meanings.shadow[0]}</li>
+            <li>{card.meanings.shadow[1]}</li>
+            <li>{card.meanings.shadow[2]}</li>
+            <li>{card.meanings.shadow[3]}</li>
+            {/* <li>{card.meanings.shadow[4]}</li>
+            <li>{card.meanings.shadow[5]}</li>
+            <li>{card.meanings.shadow[6]}</li>
+            <li>{card.meanings.shadow[7]}</li> */}
+          </ul>
         </ul>
         <button onClick={onClose}>Close </button>
       </div>
     </div>
-
   );
 };
 
