@@ -15,8 +15,6 @@ const SavedThree = () => {
   let deepest = evenDeeper.map((deepest) => deepest);
   let deeperiest = deepest.map((card) => card);
 
- let cat = nestedArrs[deeperNest][evenDeeper][deepest][deeperiest]
-  console.log(cat) 
 
 
   const renderSaved = () => {
