@@ -1,8 +1,12 @@
 import React from "react";
+import SavedThree from "../../component/saved-cards/SavedThree";
 
 const ReadingsTriple = () => {
      return(
-          <h1>Three Cards reading</h1>
+          <>
+          <h1>Saved Readings</h1>
+          <SavedThree/>
+          </>
      )
 }
 
