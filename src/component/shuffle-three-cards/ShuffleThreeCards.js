@@ -2,7 +2,6 @@ import React from "react";
 import SingleCard from "../single-card/SingleCard";
 import { useSelector, useDispatch } from "react-redux";
 import { addThree } from "../../redux/shuffle/shuffleActions";
-import SavedThree from "../saved-cards/SavedThree"
 import { withRouter } from "react-router";
 
 const ShuffleThreeCards = ({history}) => {

@@ -61,10 +61,12 @@ const [save, setSave] = useState(false)
         <button className="button-one" onClick={shuffleThrees}>
           Shuffle Three
         </button>
+
+             <button className="button-two" onClick={ 
+        () => history.push("/single")}>
+          Shuffle One
+        </button> 
       
-        {/* <button className="button-one" onClick={() => history.push("/triple")}>
-          Shuffle Three
-        </button> */}
       </div>
       <div className="shufflers">
         {!show ? <EmptyDeck /> : null}
