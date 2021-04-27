@@ -11,18 +11,18 @@ const Signin = () => {
         });
 
 
-     //    const submitHandler = async (e) => {
-     //      e.preventDefault();
-     //      const { email, password } = userCredentials;
+        const submitHandler = async (e) => {
+          e.preventDefault();
+          const { email, password } = userCredentials;
       
-     //      emailSignInStart(email, password);
-     //    };
+          // emailSignInStart(email, password);
+        };
       
-     //    const { email, password } = userCredentials;
-     //    const changeHandler = (e) => {
-     //      const { value, name } = e.target;
-     //      setCredentials({ ...userCredentials, [name]: value });
-     //    };
+        const { email, password } = userCredentials;
+        const changeHandler = (e) => {
+          const { value, name } = e.target;
+          setCredentials({ ...userCredentials, [name]: value });
+        };
 
 
      return (

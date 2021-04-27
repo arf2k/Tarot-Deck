@@ -7,6 +7,7 @@ import Header from "./component/header/Header";
 import "./styles/Universal.styles.scss";
 import ReadingsSingle from "./pages/readings/ReadingsSingle";
 import ReadingsTriple from "./pages/readings/ReadingsTriple";
+import SignInAndSignUpPage from "./pages/singinandsignup/SignInSignUp";
 
 const App = () => {
 
@@ -21,6 +22,7 @@ const App = () => {
     <Route exact path="/readings" component={Readings}/>
     <Route path = "/single" component={ReadingsSingle}/>
     <Route path = "/triple" component={ReadingsTriple}/>
+    <Route path = "/signin" component={SignInAndSignUpPage}/>
     </Switch>
     </>
 
