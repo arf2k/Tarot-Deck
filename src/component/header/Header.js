@@ -1,8 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../../styles/Header.styles.scss";
+import {auth} from "../firebase/Firebase.utils"
 
-const Header = () => {
+const Header = ({currentUser}) => {
 return (
      <div className="header-container">
           <div className="options-container">
@@ -15,6 +16,12 @@ return (
                <Link className="page-option" to="/readings">
                READINGS
                </Link>
+               {
+                    currentUser ?
+                    <div className="option" onClick={() => auth.signOut()}> SIGN OUT </div>
+                    :
+                    <Link className="option" to="/signin">SIGN IN</Link>
+               }
 
                </div>
 
