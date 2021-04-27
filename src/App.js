@@ -8,8 +8,29 @@ import "./styles/Universal.styles.scss";
 import ReadingsSingle from "./pages/readings/ReadingsSingle";
 import ReadingsTriple from "./pages/readings/ReadingsTriple";
 import SignInAndSignUpPage from "./pages/singinandsignup/SignInSignUp";
+import { auth } from "./component/firebase/Firebase.utils";
 
-const App = () => {
+class App extends React.Component  {
+
+
+state = {
+  currentUser: null
+}
+ 
+unsubscribeFromAuth = null
+
+componentDidMount(){
+ this.unsubscribeFromAuth = auth.onAuthStateChanged(user =>  {
+    this.setState({currentUser: user});
+   
+  })
+}
+
+componentWillUnmount(){
+  this.unsubscribeFromAuth()
+}
+
+ render () {
 
  
   return (
@@ -27,6 +48,7 @@ const App = () => {
     </>
 
   );
+ }
 }
 
 export default App;
