@@ -6,7 +6,7 @@ import ShuffleOneCard from "../shuffle-one/ShuffleOneCard";
 import "../../styles/ShuffleShow.styles.scss";
 import EmptyDeck from "../empty-deck/EmptyDeck";
 import { useDispatch } from "react-redux";
-import { shuffleOne, shuffleThree, addThree } from "../../redux/shuffle/shuffleActions";
+import { shuffleOne, shuffleThree } from "../../redux/shuffle/shuffleActions";
 import { withRouter } from "react-router-dom";
 
 
@@ -21,16 +21,16 @@ const [save, setSave] = useState(false)
 
   const dispatch = useDispatch();
 
-  const showShuffled = () => {
-    const arr = CardInfo;
-    const shuffled = FisherYatesShuffle(arr);
-    const card = shuffled[0];
-    // setCard(card);
-    dispatch(shuffleOne(card));
-    setShow(true);
-    // setOneShow(true)
-    // setThreeShow(false)
-  };
+  // const showShuffled = () => {
+  //   const arr = CardInfo;
+  //   const shuffled = FisherYatesShuffle(arr);
+  //   const card = shuffled[0];
+  //   // setCard(card);
+  //   dispatch(shuffleOne(card));
+  //   setShow(true);
+  //   // setOneShow(true)
+  //   // setThreeShow(false)
+  // };
 
   const shuffleThrees = () => {
     const shuffled = FisherYatesShuffle(CardInfo);
@@ -51,13 +51,7 @@ const [save, setSave] = useState(false)
   return (
     <>
       <div className="button-div">
-        {/* <button className="button-one" onClick={showShuffled}>
-          Shuffle One
-        </button> */}
-          {/* <button className="button-one" onClick={ 
-        () => history.push("/single")}>
-          Shuffle One
-        </button> */}
+     
         <button className="button-one" onClick={shuffleThrees}>
           Shuffle Three
         </button>

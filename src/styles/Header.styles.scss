@@ -18,6 +18,11 @@
     padding: 10px 15px;
     cursor: pointer;
     text-decoration: none;
+    color: white;
+
+    &:hover {
+      color: #ffd700;
+    }
   }
 
   .page-option {

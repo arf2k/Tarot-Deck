@@ -30,7 +30,7 @@ const Signin = () => {
      return (
           <div className="sign-in">
             <h2>I already have an account</h2>
-            <span>Sign in with your email and password</span>
+            <span>Sign in with your email and password or through Google</span>
       
             <form onSubmit={submitHandler}>
               <FormInput
@@ -56,7 +56,7 @@ const Signin = () => {
                   onClick={signInWithGoogle}
                   isGoogleSignIn
                 >
-                  Sign in with Google
+                Google Sign In
                 </CustomButton>
               </div> 
             </form>
