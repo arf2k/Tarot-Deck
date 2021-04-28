@@ -8,7 +8,7 @@ import "./styles/Universal.styles.scss";
 import ReadingsSingle from "./pages/readings/ReadingsSingle";
 import ReadingsTriple from "./pages/readings/ReadingsTriple";
 import SignInAndSignUpPage from "./pages/singinandsignup/SignInSignUp";
-import { auth } from "./component/firebase/Firebase.utils";
+import { auth, createUserProfileDocument } from "./component/firebase/Firebase.utils";
 
 class App extends React.Component  {
 
@@ -20,9 +20,9 @@ state = {
 unsubscribeFromAuth = null
 
 componentDidMount(){
- this.unsubscribeFromAuth = auth.onAuthStateChanged(user =>  {
+ this.unsubscribeFromAuth = auth.onAuthStateChanged(async user =>  {
+   createUserProfileDocument(user)
     this.setState({currentUser: user});
-   
   })
 }
 
