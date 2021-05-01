@@ -11,6 +11,14 @@ export const shuffleThree = (cards) => ({
      payload: cards
 });
 
+
+
+export const addOne = (savedCards) => ({
+     type: ShuffleActionTypes.ADD_ONE,
+     payload: savedCards
+})
+
+
 export const addThree = (savedCards) => ({
      type: ShuffleActionTypes.ADD_THREE,
      payload: savedCards

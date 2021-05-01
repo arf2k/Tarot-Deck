@@ -17,8 +17,12 @@ const shuffleReducer = (state = INITIAL_STATE, action) => {
                return {
                     ...state,
                    shuffle: shuffleThree(action.payload)
-               //     shuffle: [...state.shuffle, action.payload]
                }
+               case ShuffleActionTypes.ADD_ONE:
+                    return {
+                         ...state,
+                         saved: [...state.saved, action.payload ]
+                    }
                case ShuffleActionTypes.ADD_THREE:
                     return {
                          ...state,
