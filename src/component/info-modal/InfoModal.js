@@ -9,23 +9,14 @@ const InfoModal = ({ card, show, onClose }) => {
   return (
     <div className="bg" onClick={onClose}>
       <div className="modal-content">
-      
         <h1 className="card-name"> {card.name} </h1>
-        
+
         <p> Card Number : {card.number}</p>
         <ul>
-          Fortune Telling :
-          <li>{card.fortune_telling[0]}</li>
+          Fortune Telling :<li>{card.fortune_telling[0]}</li>
           <li>{card.fortune_telling[1]}</li>
           {card.fortune_telling[2] ? <li>{card.fortune_telling[2]}</li> : null}
-          </ul>
-        
-        {/* <ul>
-          Keywords:
-          <li>{card.keywords[0]}</li>
-          <li>{card.keywords[1]}</li>
-          <li>{card.keywords[2]}</li>
-        </ul> */}
+        </ul>
         <ul>
           Meanings:
           <ul>

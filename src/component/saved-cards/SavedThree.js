@@ -15,25 +15,17 @@ const SavedThree = () => {
   let deepest = evenDeeper.map((deepest) => deepest);
   let deeperiest = deepest.map((card) => card);
 
-
-
   const renderSaved = () => {
     if (saved) {
       return deeperiest.map((cardy) =>
-        cardy.map((card) => <SingleCard card={card}/>)
+        cardy.map((card) => <SingleCard card={card} />)
       );
     }
   };
 
   return (
     <>
-      
-      <h1>Saved Three component</h1>
-      <div className="saved-container">
-     {/* <div className="card">{renderSaved()} </div>   */}
-     {renderSaved()}
-           
-     </div>
+      <div className="saved-container">{renderSaved()}</div>
     </>
   );
 };

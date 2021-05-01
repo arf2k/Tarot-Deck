@@ -1,33 +1,34 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "../../styles/Header.styles.scss";
-import {auth} from "../firebase/Firebase.utils"
+import { auth } from "../firebase/Firebase.utils";
 
-const Header = ({currentUser}) => {
-return (
-     <div className="header-container">
-          <div className="options-container">
-          <Link className="page-option" to="/">
-               HOME
-               </Link>
-               <Link className="page-option" to="/allcards">
-               ALL CARDS
-               </Link>
-               <Link className="page-option" to="/readings">
-               READINGS
-               </Link>
-               {
-                    currentUser ?
-                    <div className="option" onClick={() => auth.signOut()}> SIGN OUT </div>
-                    :
-                    <Link className="option" to="/signin">SIGN IN</Link>
-               }
-
-               </div>
-
+const Header = ({ currentUser }) => {
+  return (
+    <div className="header-container">
+      <div className="options-container">
+        <Link className="page-option" to="/">
+          HOME
+        </Link>
+        <Link className="page-option" to="/allcards">
+          ALL CARDS
+        </Link>
+        <Link className="page-option" to="/readings">
+          READINGS
+        </Link>
+        {currentUser ? (
+          <div className="option" onClick={() => auth.signOut()}>
+            {" "}
+            SIGN OUT{" "}
           </div>
-  
-)
-}
+        ) : (
+          <Link className="option" to="/signin">
+            SIGN IN
+          </Link>
+        )}
+      </div>
+    </div>
+  );
+};
 
-export default Header
+export default Header;
