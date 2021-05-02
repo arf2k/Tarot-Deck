@@ -28,11 +28,11 @@ const ShuffleShow = ({ history }) => {
   return (
     <>
       <div className="button-div">
-        <CustomButton  onClick={shuffleThrees} isShuffle>
+        <CustomButton id="three" onClick={shuffleThrees} isShuffle>
           Shuffle Three
         </CustomButton>
 
-        <CustomButton onClick={() => history.push("/single")} isShuffle>
+        <CustomButton id="one" onClick={() => history.push("/single")} isShuffle>
           Shuffle One
         </CustomButton>
       </div>
