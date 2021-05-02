@@ -1,4 +1,4 @@
-import { shuffleOne, shuffleThree, addThree } from "./shuffleActions";
+import { shuffleOne, shuffleThree} from "./shuffleActions";
 import ShuffleActionTypes from "./shuffleTypes";
 
 const INITIAL_STATE = {

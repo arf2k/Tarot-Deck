@@ -1,5 +1,5 @@
 import React from "react";
-import { Switch, Route} from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import Homepage from "./pages/homepage/Homepage";
 import AllCards from "./pages/all-cards/AllCards";
 import Readings from "./pages/readings/Readings";
@@ -8,58 +8,54 @@ import "./styles/Universal.styles.scss";
 import ReadingsSingle from "./pages/readings/ReadingsSingle";
 import ReadingsTriple from "./pages/readings/ReadingsTriple";
 import SignInAndSignUpPage from "./pages/singinandsignup/SignInSignUp";
-import { auth, createUserProfileDocument } from "./component/firebase/Firebase.utils";
+import {
+  auth,
+  createUserProfileDocument,
+} from "./component/firebase/Firebase.utils";
 
-class App extends React.Component  {
+class App extends React.Component {
+  state = {
+    currentUser: null,
+  };
 
+  unsubscribeFromAuth = null;
 
-state = {
-  currentUser: null
-}
- 
-unsubscribeFromAuth = null
+  componentDidMount() {
+    this.unsubscribeFromAuth = auth.onAuthStateChanged(async (userAuth) => {
+      if (userAuth) {
+        const userRef = await createUserProfileDocument(userAuth);
+        userRef.onSnapshot((snapShot) => {
+          this.setState({
+            currentUser: {
+              id: snapShot.id,
+              ...snapShot.data(),
+            },
+          });
+        });
+      }
+      this.setState({ currentUser: userAuth });
+    });
+  }
 
-componentDidMount(){
- this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth =>  {
-   if(userAuth) {
-    const userRef = await createUserProfileDocument(userAuth)
-    userRef.onSnapshot(snapShot => {
-      this.setState({
-        currentUser: {
-          id: snapShot.id,
-          ...snapShot.data()
-        }
-      })
-    }) 
-   }
-   this.setState({currentUser: userAuth})
-  })
-}
+  componentWillUnmount() {
+    this.unsubscribeFromAuth();
+  }
 
-
-componentWillUnmount(){
-  this.unsubscribeFromAuth()
-}
-
- render () {
-
- 
-  return (
-    
-   <>
-    <Header currentUser={this.state.currentUser}/>
-    <Switch>
-    <Route exact path="/" component={Homepage} />
-    <Route exact path="/allcards" component={AllCards}/>
-    <Route exact path="/readings" component={Readings}/>
-    <Route path = "/single" component={ReadingsSingle}/>
-    <Route path = "/triple" component={ReadingsTriple}/>
-    <Route path = "/signin" component={SignInAndSignUpPage}/>
-    </Switch>
-    </>
-
-  );
- }
+  render() {
+    return (
+      <>
+        <Header currentUser={this.state.currentUser} />
+        <Switch>
+          <Route exact path="/" component={Homepage} />
+          <Route exact path="/allcards" component={AllCards} />
+          <Route exact path="/readings" component={Readings} />
+          <Route path="/single" component={ReadingsSingle} />
+          <Route path="/triple" component={ReadingsTriple} />
+          <Route path="/signin" component={SignInAndSignUpPage} />
+        </Switch>
+      </>
+    );
+  }
 }
 
 export default App;

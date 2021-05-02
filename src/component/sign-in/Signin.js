@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import FormInput from "../form-input/FormInput";
 import "../../styles/Signin.styles.scss";
 import CustomButton from "../custom-button/CustomButton";
-import { signInWithGoogle } from "../../component/firebase/Firebase.utils";
+import { auth, signInWithGoogle } from "../../component/firebase/Firebase.utils";
 
 const Signin = () => {
   const [userCredentials, setCredentials] = useState({
@@ -12,23 +12,29 @@ const Signin = () => {
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    const { email, password } = userCredentials;
-
     // emailSignInStart(email, password);
-  };
+    const { email, password } = userCredentials;
+    try {
+      await auth.signInWithEmailAndPassword(email, password)
+      setCredentials({email: "", password: "" })
+    } catch (error) {
+      console.log(error)
+    }
+  }
 
-  const { email, password } = userCredentials;
   const changeHandler = (e) => {
     const { value, name } = e.target;
     setCredentials({ ...userCredentials, [name]: value });
   };
+
+  const { email, password } = userCredentials
 
   return (
     <div className="sign-in">
       <h2>I already have an account</h2>
       <span>Sign in with your email and password or through Google</span>
 
-      <form onSubmit={submitHandler}>
+      <form>
         <FormInput
           name="email"
           type="email"
@@ -46,7 +52,7 @@ const Signin = () => {
           required
         />
         <div className="buttons">
-          <CustomButton type="submit">Sign In</CustomButton>
+          <CustomButton type="submit" onClick={submitHandler}>Sign In</CustomButton>
           <CustomButton type="button" onClick={signInWithGoogle} isGoogleSignIn>
             Google Sign In
           </CustomButton>
