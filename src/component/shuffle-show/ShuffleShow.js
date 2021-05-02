@@ -7,6 +7,7 @@ import EmptyDeck from "../empty-deck/EmptyDeck";
 import { useDispatch } from "react-redux";
 import { shuffleThree } from "../../redux/shuffle/shuffleActions";
 import { withRouter } from "react-router-dom";
+import CustomButton from "../custom-button/CustomButton";
 
 const ShuffleShow = ({ history }) => {
 
@@ -27,13 +28,13 @@ const ShuffleShow = ({ history }) => {
   return (
     <>
       <div className="button-div">
-        <button className="button-one" onClick={shuffleThrees}>
+        <CustomButton  onClick={shuffleThrees} isShuffle>
           Shuffle Three
-        </button>
+        </CustomButton>
 
-        <button className="button-two" onClick={() => history.push("/single")}>
+        <CustomButton onClick={() => history.push("/single")} isShuffle>
           Shuffle One
-        </button>
+        </CustomButton>
       </div>
       <div className="shufflers">
         {!show ? <EmptyDeck /> : null}

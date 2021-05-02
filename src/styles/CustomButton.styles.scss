@@ -21,9 +21,22 @@
        color: black;
        border: 1px solid black;
      }
+
+     &.shuffle {
+      background: rgba(255, 255, 255, 0.2);
+      backdrop-filter: blur(5.5px);
+      color: #ffd700;
+
+      &:hover {
+        background-color: black;
+      }
+
+     }
+
      &.google-sign-in {
        background-color: #4285f4;
        color: white;  
+
 
        &:hover {
          background-color: #357ae8;
@@ -42,8 +55,9 @@
         border: none;
       }
 
-
      }
+
+
 
    }
    
