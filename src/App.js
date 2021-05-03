@@ -1,5 +1,5 @@
 import React from "react";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 import Homepage from "./pages/homepage/Homepage";
 import AllCards from "./pages/all-cards/AllCards";
 import Readings from "./pages/readings/Readings";
@@ -41,7 +41,9 @@ class App extends React.Component {
     this.unsubscribeFromAuth();
   }
 
+
   render() {
+
     return (
       <>
         <Header currentUser={this.state.currentUser} />
@@ -51,7 +53,7 @@ class App extends React.Component {
           <Route exact path="/readings" component={Readings} />
           <Route path="/single" component={ReadingsSingle} />
           <Route path="/triple" component={ReadingsTriple} />
-          <Route path="/signin" component={SignInAndSignUpPage} />
+          <Route path="/signin" render={ () => (this.state.currentUser? <Redirect to="/" /> : <SignInAndSignUpPage/>)} />
         </Switch>
       </>
     );

@@ -5,6 +5,7 @@ import CardInfo from "../../tarot-card-json";
 import { FisherYatesShuffle } from "../shuffle-algo/ShuffleAlgo";
 import { shuffleOne } from "../../redux/shuffle/shuffleActions";
 import { addOne } from "../../redux/shuffle/shuffleActions"; 
+import MyButton from "../my-button/MyButton"
 
 const ShuffleOneCard = () => {
  
@@ -36,12 +37,12 @@ const [show, setShow] = useState(false);
 
   return (
     <>
-    <button className="button-one" onClick={showShuffled}>
+    <MyButton id="shuffle-one" isShuffle onClick={showShuffled}>
     Shuffle One
-  </button>
-  {show ? <button className="button-one" onClick={saveCard}>
+  </MyButton>
+  {show ? <MyButton id="save" onClick={saveCard}>
     Save Card
-  </button> : null }
+  </MyButton> : null }
    { shuffle ? renderOne() : null}</>
    
   )
