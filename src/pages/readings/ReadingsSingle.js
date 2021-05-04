@@ -1,7 +1,9 @@
 import React from "react";
 import ShuffleOneCard from "../../component/shuffle-one/ShuffleOneCard";
 
-const ReadingsSingle = ({showShuffled}) => {
+
+
+const ReadingsSingle = ({history, showShuffled}) => {
 
 
 

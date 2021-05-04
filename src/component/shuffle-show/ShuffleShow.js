@@ -38,9 +38,6 @@ const ShuffleShow = ({ history }) => {
       </div>
       <div className="shufflers">
         {!show ? <EmptyDeck /> : null}
-        <div className="shuffle-one-container">
-          {/* <ShuffleOneCard showShuffled={showShuffled}/> */}
-        </div>
         <div className="shuffle-three-container">
           <ShuffleThreeCards/>
         </div>

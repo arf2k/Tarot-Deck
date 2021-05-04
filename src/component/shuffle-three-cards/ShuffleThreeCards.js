@@ -3,6 +3,8 @@ import SingleCard from "../single-card/SingleCard";
 import { useSelector, useDispatch } from "react-redux";
 import { addThree } from "../../redux/shuffle/shuffleActions";
 import { withRouter } from "react-router";
+import EmptyDeck from "../empty-deck/EmptyDeck";
+import MyButton from "../my-button/MyButton";
 
 const ShuffleThreeCards = ({ history }) => {
   const { shuffle } = useSelector((state) => state.shuffle);
@@ -13,7 +15,8 @@ const ShuffleThreeCards = ({ history }) => {
   const dispatch = useDispatch();
   const renderThree = () => {
     if (!cards) {
-      return null;
+      // return null;
+      return <EmptyDeck/>
     } else {
       return cards[0].map((card) => <SingleCard card={card} />);
     }
@@ -25,6 +28,7 @@ const ShuffleThreeCards = ({ history }) => {
 
   return (
     <>
+    <MyButton onClick={history.back}/>
       {cards ? renderThree() : null}
       {cards ? <button onClick={saveThree}>Save?</button> : null}
       {saved.length > 0 ? (
