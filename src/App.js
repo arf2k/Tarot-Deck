@@ -34,6 +34,7 @@ class App extends React.Component {
         });
       }
       this.setState({ currentUser: userAuth });
+      console.log(this.state.currentUser.displayName)
     });
   }
 
@@ -48,7 +49,7 @@ class App extends React.Component {
       <>
         <Header currentUser={this.state.currentUser} />
         <Switch>
-          <Route exact path="/" component={Homepage} />
+          <Route exact path="/" render={(routerProps) => (<Homepage currentUser={this.state.currentUser}/>)} />
           <Route exact path="/allcards" component={AllCards} />
           <Route exact path="/readings" component={Readings} />
           <Route path="/single" component={ReadingsSingle} />
