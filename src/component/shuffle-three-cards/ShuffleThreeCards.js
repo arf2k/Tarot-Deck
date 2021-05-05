@@ -6,17 +6,19 @@ import { withRouter } from "react-router";
 import EmptyDeck from "../empty-deck/EmptyDeck";
 import MyButton from "../my-button/MyButton";
 
-const ShuffleThreeCards = ({ history }) => {
+const ShuffleThreeCards = ({ show, history }) => {
+
   const { shuffle } = useSelector((state) => state.shuffle);
   const cards = shuffle.payload;
 
   const saved = useSelector((state) => state.shuffle.saved);
+  
 
   const dispatch = useDispatch();
   const renderThree = () => {
-    if (!cards) {
-      // return null;
-      return <EmptyDeck/>
+    if (!show) {
+      return null;
+   
     } else {
       return cards[0].map((card) => <SingleCard card={card} />);
     }
@@ -28,8 +30,9 @@ const ShuffleThreeCards = ({ history }) => {
 
   return (
     <>
-    <MyButton onClick={history.back}/>
-      {cards ? renderThree() : null}
+      {/* {cards ? renderThree() : null} */}
+      {shuffle ? renderThree() : <EmptyDeck/>}
+
       {cards ? <button onClick={saveThree}>Save?</button> : null}
       {saved.length > 0 ? (
         <button onClick={() => history.push("/triple")}>See saved</button>
