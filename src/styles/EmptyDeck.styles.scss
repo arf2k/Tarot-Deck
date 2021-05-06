@@ -6,10 +6,32 @@
 
 }
 
-.empty-card {
+
+
+.empty-card-front {
   height: 606px;
   width: 356px;
   border: solid;
   box-shadow: 5px 10px 8px #ffd700;
   background-color: gray;
+  position: absolute;
+}
+
+
+.empty-card-back {
+  transform: rotateY(180deg);
+}
+
+.content {
+  width: 100%;
+  height: 100%;
+  box-shadow: 5px 10px 8px #ffd700;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+  position: absolute;
+}
+
+.empty-card:hover .content{
+  transform: rotateY( 180deg ) ;
+  transition: transform 0.5s;
 }

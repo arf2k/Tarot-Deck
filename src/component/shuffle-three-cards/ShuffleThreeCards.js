@@ -18,7 +18,6 @@ const ShuffleThreeCards = ({ show, history }) => {
   const renderThree = () => {
     if (!show) {
       return null;
-   
     } else {
       return cards[0].map((card) => <SingleCard card={card} />);
     }
