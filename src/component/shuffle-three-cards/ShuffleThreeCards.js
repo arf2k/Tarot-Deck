@@ -5,6 +5,7 @@ import { addThree } from "../../redux/shuffle/shuffleActions";
 import { withRouter } from "react-router";
 import EmptyDeck from "../empty-deck/EmptyDeck";
 import MyButton from "../my-button/MyButton";
+import { createThreeCardFirestoreEntry } from "../../redux/firestore/FirestoreActions"
 
 const ShuffleThreeCards = ({ show, history }) => {
 
@@ -23,16 +24,23 @@ const ShuffleThreeCards = ({ show, history }) => {
     }
   };
 
-  const saveThree = () => {
-    dispatch(addThree([cards]));
-  };
+  // const saveThree = () => {
+  //   dispatch(addThree([cards]));
+  // };
+
+
+  const createTripleEntry = () => {
+    dispatch(createThreeCardFirestoreEntry(cards))
+  }
+
 
   return (
     <>
       {/* {cards ? renderThree() : null} */}
       {shuffle ? renderThree() : <EmptyDeck/>}
+      {cards ? <button onClick={createTripleEntry}>Save?</button> : null}
 
-      {cards ? <button onClick={saveThree}>Save?</button> : null}
+      {/* {cards ? <button onClick={saveThree}>Save?</button> : null} */}
       {saved.length > 0 ? (
         <button onClick={() => history.push("/triple")}>See saved</button>
       ) : null}

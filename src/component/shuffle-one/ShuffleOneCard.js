@@ -6,7 +6,7 @@ import { FisherYatesShuffle } from "../shuffle-algo/ShuffleAlgo";
 import { shuffleOne } from "../../redux/shuffle/shuffleActions";
 import { addOne } from "../../redux/shuffle/shuffleActions"; 
 import MyButton from "../my-button/MyButton";
-import { createFirestoreEntry } from "../../redux/firestore/FirestoreActions";
+import { createSingleCardFirestoreEntry } from "../../redux/firestore/FirestoreActions";
 
 const ShuffleOneCard = () => {
  
@@ -36,7 +36,7 @@ const [show, setShow] = useState(false);
   // }
 
   const createEntry = () => {
-    dispatch(createFirestoreEntry(card))
+    dispatch(createSingleCardFirestoreEntry(card))
   }
 
 
