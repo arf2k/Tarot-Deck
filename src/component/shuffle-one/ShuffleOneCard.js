@@ -35,6 +35,10 @@ const [show, setShow] = useState(false);
     dispatch(addOne(card))
   }
 
+  const createEntry = () => {
+    dispatch(createFirestoreEntry(card))
+  }
+
 
   return (
     <>
@@ -42,7 +46,10 @@ const [show, setShow] = useState(false);
     <MyButton id="shuffle-one" isShuffle onClick={showShuffled}>
     Shuffle One
   </MyButton>
-  {show ? <MyButton id="save" onClick={saveCard}>
+  {/* {show ? <MyButton id="save" onClick={saveCard}>
+    Save Card
+  </MyButton> : null } */}
+  {show ? <MyButton id="save" onClick={createEntry}>
     Save Card
   </MyButton> : null }
    { shuffle ? renderOne() : null}</>

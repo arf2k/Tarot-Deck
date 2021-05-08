@@ -2,7 +2,7 @@ import firebase from "firebase/app";
 import "firebase/firestore";
 import "firebase/auth";
 
-const config = {
+export const config = {
   apiKey: "AIzaSyDr-ZO9s5nFvzQNenoQ1rCuZ-JdZyLUmQo",
   authDomain: "tarot-app-a2645.firebaseapp.com",
   projectId: "tarot-app-a2645",
@@ -13,6 +13,7 @@ const config = {
 };
 
 !firebase.apps.length ? firebase.initializeApp(config) : firebase.app();
+firebase.firestore().settings({ timestampsInSnapshots: true})
 
 export const createUserProfileDocument = async (userAuth, additionalData) => {
   if (!userAuth) return;
@@ -37,17 +38,17 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
 };
 
 
-export const addCollectionAndDocs = async (collectionKey, objToAdd) => {
-  const collectionRef = firestore.collection(collectionKey)
-  console.log(collectionRef)
+// export const addCollectionAndDocs = async (collectionKey, objToAdd) => {
+//   const collectionRef = firestore.collection(collectionKey)
+//   console.log(collectionRef)
 
-  const batch = firestore.batch()
-  objToAdd.forEach(obj => {
-    const newDocRef = collectionRef.doc()
-    batch.set(newDocRef, obj)
-  })
- return await batch.commit()
-}
+//   const batch = firestore.batch()
+//   objToAdd.forEach(obj => {
+//     const newDocRef = collectionRef.doc()
+//     batch.set(newDocRef, obj)
+//   })
+//  return await batch.commit()
+// }
 
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
