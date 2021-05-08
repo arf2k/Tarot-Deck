@@ -5,7 +5,8 @@ import CardInfo from "../../tarot-card-json";
 import { FisherYatesShuffle } from "../shuffle-algo/ShuffleAlgo";
 import { shuffleOne } from "../../redux/shuffle/shuffleActions";
 import { addOne } from "../../redux/shuffle/shuffleActions"; 
-import MyButton from "../my-button/MyButton"
+import MyButton from "../my-button/MyButton";
+import { createFirestoreEntry } from "../../redux/firestore/FirestoreActions";
 
 const ShuffleOneCard = () => {
  
