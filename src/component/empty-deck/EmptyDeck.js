@@ -10,9 +10,9 @@ const EmptyDeck = () => {
       <div className="empty-card-front"></div>
       <div className="empty-card-front"></div>
     
+      {/* <div className="empty-card-back"></div>
       <div className="empty-card-back"></div>
-      <div className="empty-card-back"></div>
-      <div className="empty-card-back"></div>
+      <div className="empty-card-back"></div> */}
     </div>
 
     </>
