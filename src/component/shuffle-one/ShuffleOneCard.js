@@ -31,9 +31,9 @@ const [show, setShow] = useState(false);
     }
   };
 
-  const saveCard = () => {
-    dispatch(addOne(card))
-  }
+  // const saveCard = () => {
+  //   dispatch(addOne(card))
+  // }
 
   const createEntry = () => {
     dispatch(createFirestoreEntry(card))

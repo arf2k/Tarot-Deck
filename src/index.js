@@ -5,14 +5,29 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
-import { getFirestore } from "redux-firestore";
-import { getFirebase } from "react-redux-firebase";
+import { ReactReduxFirebaseProvider } from "react-redux-firebase";
+import { createFirestoreInstance } from "redux-firestore";
+import firebase from "firebase";
+import { config } from "./component/firebase/Firebase.utils"
+
+
+
+const rrfProps = {
+  firebase,
+  config: config,
+  dispatch: store.dispatch,
+  createFirestoreInstance
+}
+
+
 
 ReactDOM.render(
   <Provider store={store}>
+    <ReactReduxFirebaseProvider {...rrfProps}>
   <BrowserRouter>
     <App />
   </BrowserRouter>
+  </ReactReduxFirebaseProvider>
   </Provider>,
   document.getElementById('root')
 );
