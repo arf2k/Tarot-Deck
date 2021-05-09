@@ -1,7 +1,7 @@
 const INITIAL_STATE = {}
 
 
-const FirestoreReducer = (state = INITIAL_STATE, action) => {
+const FirebaseReducer = (state = INITIAL_STATE, action) => {
      switch(action.type){
           case "CREATE_SINGLE_ENTRY":
                console.log("created single card entry", action.entry);
@@ -18,4 +18,4 @@ const FirestoreReducer = (state = INITIAL_STATE, action) => {
 
 }
 
-export default FirestoreReducer
+export default FirebaseReducer

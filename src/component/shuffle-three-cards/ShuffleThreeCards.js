@@ -5,7 +5,7 @@ import { addThree } from "../../redux/shuffle/shuffleActions";
 import { withRouter } from "react-router";
 import EmptyDeck from "../empty-deck/EmptyDeck";
 import MyButton from "../my-button/MyButton";
-import { createThreeCardFirestoreEntry } from "../../redux/firestore/FirestoreActions"
+import { createThreeCardFirestoreEntry } from "../../redux/firestore/FirebaseActions"
 
 const ShuffleThreeCards = ({ show, history }) => {
 

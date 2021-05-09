@@ -4,9 +4,9 @@ import { useDispatch, useSelector } from "react-redux";
 import CardInfo from "../../tarot-card-json";
 import { FisherYatesShuffle } from "../shuffle-algo/ShuffleAlgo";
 import { shuffleOne } from "../../redux/shuffle/shuffleActions";
-import { addOne } from "../../redux/shuffle/shuffleActions"; 
 import MyButton from "../my-button/MyButton";
-import { createSingleCardFirestoreEntry } from "../../redux/firestore/FirestoreActions";
+import { createSingleCardFirestoreEntry } from "../../redux/firestore/FirebaseActions";
+import { firestoreConnect } from "react-redux-firebase";
 
 const ShuffleOneCard = () => {
  
@@ -30,10 +30,6 @@ const [show, setShow] = useState(false);
     return <SingleCard card={card} />;
     }
   };
-
-  // const saveCard = () => {
-  //   dispatch(addOne(card))
-  // }
 
   const createEntry = () => {
     dispatch(createSingleCardFirestoreEntry(card))
