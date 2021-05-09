@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "../../styles/SingleCard.styles.scss";
 import InfoModal from "../info-modal/InfoModal";
+import SavedOne from "../saved-cards/SavedOne";
 
 const SingleCard = ({ card }) => {
   const [show, setShow] = useState(false);
@@ -28,6 +29,9 @@ const SingleCard = ({ card }) => {
         </div>
       </div>
       <InfoModal card={card} show={show} onClose={onClose} />
+      <SavedOne/>
+      <>
+    </>
     </>
   );
 };

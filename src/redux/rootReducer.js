@@ -6,7 +6,7 @@ import { firestoreReducer } from "redux-firestore";
 const rootReducer = combineReducers({
      shuffle: shuffleReducer,
      firebase: FirebaseReducer,
-     firestoreSync: firestoreReducer,
+     firestore: firestoreReducer,
 })
 
 export default rootReducer
