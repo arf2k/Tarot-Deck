@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import SingleCard from "../single-card/SingleCard";
 import { useSelector } from "react-redux";
 import { firestoreConnect } from "react-redux-firebase";
@@ -7,26 +7,38 @@ import "../../styles/SavedThree.styles.scss"
 
 const SavedOne = ({state}) => {
 
-     const id = props.match.params.id
-     const saved = useSelector((state => state.firestore.ordered.single_shuffle))
+     const saved = useSelector((state => state.firestore.ordered))
+     // const [showSavedCards, setShowSavedCards] = useState(false)
 
-     const [showSavedCards, setShowSavedCards] = useState(false)
+const [savedCards, setSavedCards] = useState()
 
+     const renderSavedOne = () => {
+          if(savedCards){
+               // return savedCards.map(card => <SingleCard card={card}/>)
+               return savedCards.single_shuffle.map(card => <SingleCard card={card}/>)
 
-     // const renderSavedOne = () => {
-     //      if(saved){
-     //           return saved.map(card => <SingleCard card={card}/>)
-     //      }
+               console.log(savedCards.single_shuffle)
+          }
         
-     // }
+     }
      
+     useEffect(() => {
+        if(saved){
+             setSavedCards(saved)
+        }
+     }, [])
+
+
 
 //   const showSaved = (e) => {
 //      setShowSavedCards(true)
 //      renderSavedOne()
 //    }
 
-
+// const [items, setItems] = useState([]);
+// useEffect(()=> {
+// setItems(saved)
+// }, [])
 
 
 
@@ -35,8 +47,10 @@ return(
      <>
         {/* {saved ? (
         <button onClick={() => showSaved}>See saved</button>
-      ) : null} */}
-     <div className="saved-container">{renderSavedOne()}</div>
+      ) : null}  */}
+
+      <h1>Saved Cards</h1>
+      {savedCards? <div className="saved-container">{renderSavedOne()}</div> : null }
    </>
 )
 

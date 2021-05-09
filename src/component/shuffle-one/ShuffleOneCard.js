@@ -5,8 +5,8 @@ import CardInfo from "../../tarot-card-json";
 import { FisherYatesShuffle } from "../shuffle-algo/ShuffleAlgo";
 import { shuffleOne } from "../../redux/shuffle/shuffleActions";
 import MyButton from "../my-button/MyButton";
-import { createSingleCardFirestoreEntry } from "../../redux/firestore/FirebaseActions";
-import { firestoreConnect } from "react-redux-firebase";
+import { createSingleCardFirestoreEntry } from "../../redux/save/saveDBActions";
+import SavedOne from "../saved-cards/SavedOne";
 
 const ShuffleOneCard = () => {
  
@@ -48,8 +48,9 @@ const [show, setShow] = useState(false);
   {show ? <MyButton id="save" onClick={createEntry}>
     Save Card
   </MyButton> : null }
-   { shuffle ? renderOne() : null}</>
-   
+   { shuffle ? renderOne() : null}
+   <SavedOne/>
+   </>
   )
  
 };

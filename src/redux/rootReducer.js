@@ -1,12 +1,14 @@
 import { combineReducers } from "redux";
-import FirebaseReducer from "./firestore/FirebaseReducer";
+import saveDBReducer from "./save/saveDBReducer";
 import shuffleReducer from "./shuffle/shuffleReducer";
 import { firestoreReducer } from "redux-firestore";
+import { firebaseReducer } from "react-redux-firebase";
 
 const rootReducer = combineReducers({
      shuffle: shuffleReducer,
-     firebase: FirebaseReducer,
+     save: saveDBReducer,
      firestore: firestoreReducer,
+     auth: firebaseReducer
 })
 
 export default rootReducer
