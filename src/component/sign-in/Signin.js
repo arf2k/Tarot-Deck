@@ -12,7 +12,6 @@ const Signin = () => {
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    // emailSignInStart(email, password);
     const { email, password } = userCredentials;
     try {
       await auth.signInWithEmailAndPassword(email, password)

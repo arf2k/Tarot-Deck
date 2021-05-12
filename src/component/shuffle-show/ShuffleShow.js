@@ -10,13 +10,9 @@ import { withRouter } from "react-router-dom";
 import MyButton from "../my-button/MyButton";
 
 const ShuffleShow = ({ history }) => {
-
   const [show, setShow] = useState(false);
 
-
   const dispatch = useDispatch();
-
-
 
   const shuffleThrees = () => {
     const shuffled = FisherYatesShuffle(CardInfo);
@@ -39,7 +35,7 @@ const ShuffleShow = ({ history }) => {
       <div className="shufflers">
         {!show ? <EmptyDeck /> : null}
         <div className="shuffle-three-container">
-          <ShuffleThreeCards show={show}/>
+          <ShuffleThreeCards show={show} />
         </div>
       </div>
     </>

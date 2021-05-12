@@ -13,7 +13,6 @@ const SingleCard = ({ card }) => {
     setShow(false);
   };
 
-
   return (
     <>
       <div className="card-container">
@@ -29,8 +28,7 @@ const SingleCard = ({ card }) => {
         </div>
       </div>
       <InfoModal card={card} show={show} onClose={onClose} />
-      <>
-    </>
+      <></>
     </>
   );
 };

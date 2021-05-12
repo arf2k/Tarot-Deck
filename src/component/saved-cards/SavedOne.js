@@ -15,9 +15,10 @@ const [savedCards, setSavedCards] = useState()
      const renderSavedOne = () => {
           if(savedCards){
                // return savedCards.map(card => <SingleCard card={card}/>)
+               console.log(savedCards.single_shuffle)
+
                return savedCards.single_shuffle.map(card => <SingleCard card={card}/>)
 
-               console.log(savedCards.single_shuffle)
           }
         
      }
