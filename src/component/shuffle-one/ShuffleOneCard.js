@@ -37,9 +37,6 @@ const ShuffleOneCard = () => {
       <MyButton id="shuffle-one" isShuffle onClick={showShuffled}>
         Shuffle One
       </MyButton>
-      {/* {show ? <MyButton id="save" onClick={saveCard}>
-    Save Card
-  </MyButton> : null } */}
       {show ? (
         <MyButton id="save" onClick={createEntry}>
           Save Card
