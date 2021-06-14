@@ -20,8 +20,6 @@ const ShuffleThreeCards = ({ show, history }) => {
     }
   };
 
- 
-
   const createTripleEntry = () => {
     dispatch(createThreeCardFirestoreEntry(cards));
   };
@@ -30,7 +28,6 @@ const ShuffleThreeCards = ({ show, history }) => {
     <>
       {shuffle ? renderThree() : <EmptyDeck />}
       {cards ? <button onClick={createTripleEntry}>Save?</button> : null}
-
 
       {saved.length > 0 ? (
         <button onClick={() => history.push("/triple")}>See saved</button>
