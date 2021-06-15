@@ -27,7 +27,7 @@ const [savedCards, setSavedCards] = useState()
         if(saved){
              setSavedCards(saved)
         }
-     }, [])
+     }, [saved])
 
 
 

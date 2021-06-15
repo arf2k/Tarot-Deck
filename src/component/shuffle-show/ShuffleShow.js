@@ -14,7 +14,7 @@ const ShuffleShow = ({ history }) => {
 
   const dispatch = useDispatch();
 
-  const shuffleThrees = () => {
+  export const shuffleThrees = () => {
     const shuffled = FisherYatesShuffle(CardInfo);
     let three = [shuffled[0], shuffled[1], shuffled[2]];
     dispatch(shuffleThree([three]));

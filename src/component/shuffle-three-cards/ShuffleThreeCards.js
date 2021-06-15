@@ -24,6 +24,7 @@ const ShuffleThreeCards = ({ show, history }) => {
     dispatch(createThreeCardFirestoreEntry(cards));
   };
 
+ 
   return (
     <>
       {shuffle ? renderThree() : <EmptyDeck />}
